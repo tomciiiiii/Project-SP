@@ -1,0 +1,33 @@
+# Project SP System Architecture
+
+## Purpose
+
+This document defines the complete signal path of Project SP.
+
+## Recording Path
+
+Analog Input  
+→ Input Protection  
+→ DC Coupling and Input Impedance  
+→ Variable Gain Preamplifier  
+→ Anti-Alias Filter  
+→ Sample and Hold  
+→ ADC  
+→ Sample Memory
+
+## Playback Path
+
+Sample Memory  
+→ Playback and Pitch Engine  
+→ DAC  
+→ Reconstruction Filter  
+→ Output Amplifier  
+→ Line Output
+
+## Research Questions
+
+- Which stages define the recording character?
+- Which stages define the playback character?
+- Which behaviours should be reproduced in analog hardware?
+- Which behaviours should be implemented in DSP?
+- Which stages should be switchable for comparison?
