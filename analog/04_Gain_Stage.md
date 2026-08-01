@@ -1,139 +1,88 @@
-# Gain Stage
+# Initial Gain Calculation
 
-## Purpose
+The Daisy Seed audio input accepts approximately 3.6 Vpp at full
+scale.
 
-The gain stage adjusts the amplitude of the incoming audio signal so that the ADC operates close to its full-scale input range without clipping.
+A consumer line-level signal of −10 dBV corresponds to:
 
-Proper gain maximizes the available dynamic range while minimizing the risk of distortion.
+\[
+V_{RMS}=0.316\text{ V}
+\]
 
----
+\[
+V_{PP}=2\sqrt{2}\cdot0.316=0.894\text{ Vpp}
+\]
 
-# Why is Gain Necessary?
+The required gain is therefore:
 
-Audio sources produce different output levels.
+\[
+A_v=\frac{3.6}{0.894}=4.03
+\]
 
-Examples include:
+A nominal gain of 4 was selected for the initial design.
 
-- Mixers
-- Synthesizers
-- Samplers
-- Audio interfaces
+For a non-inverting amplifier:
 
-The gain stage normalizes these signals before analog-to-digital conversion.
+\[
+A_v=1+\frac{R_f}{R_g}
+\]
 
----
+Using:
 
-# Design Goals
+\[
+R_g=10.0\text{ k}\Omega
+\]
 
-The gain stage should:
+\[
+R_f=30.1\text{ k}\Omega
+\]
 
-- Maximize ADC resolution
-- Prevent clipping
-- Introduce minimal noise
-- Introduce minimal distortion
-- Remain stable
-- Preserve frequency response
+results in:
 
----
+\[
+A_v=1+\frac{30.1}{10}=4.01
+\]
 
-# Fixed or Adjustable Gain?
-
-## Fixed Gain
-
-Advantages
-
-- Simple
-- Low cost
-- Repeatable performance
-
-Disadvantages
-
-- Less flexible
-
----
-
-## Adjustable Gain
-
-Advantages
-
-- Supports different sources
-- Better headroom control
-
-Disadvantages
-
-- More components
-- Potentiometer wear
-- Increased complexity
-
-Project SP will initially investigate a fixed-gain design.
-
----
-
-# Non-Inverting Amplifier
-
-The first implementation is expected to use a non-inverting operational amplifier configuration.
-
-Advantages include:
-
-- High input impedance
-- Simple gain calculation
-- Excellent stability
-- Widely used in audio circuits
-
-Gain is defined by:
-
-Gain = 1 + (Rf / Rin)
-
----
-
-# Design Considerations
-
-The following parameters will be determined during the design phase:
-
-- ADC full-scale input voltage
-- Expected maximum input level
-- Required gain
-- Feedback resistor
-- Input resistor
-
----
-
-# Future Calculations
-
-The following calculations remain to be completed:
-
-- Required gain
-- Feedback resistor value
-- Input resistor value
-- Headroom analysis
-- Noise contribution
-
----
-
-# References
-
-- OPA2134 Datasheet
-- Analog Devices application notes
-- Douglas Self – Small Signal Audio Design
-
----
+Because professional line-level signals may already approach the
+ADC full-scale range, a level potentiometer will be placed before
+the fixed-gain stage. This allows the complete input stage to
+provide both attenuation and amplification.
 
 # Project SP Design Decision
 
 ## Current Status
 
-🟡 Under Investigation
+🟡 Initial Design Candidate
 
 ## Current Concept
 
-Non-inverting OPA2134 gain stage.
+Project SP will initially use a level control followed by a fixed-gain,
+non-inverting OPA2134 stage.
+
+## Initial Component Values
+
+- Input level potentiometer: 10 kΩ logarithmic
+- Gain resistor: 10.0 kΩ
+- Feedback resistor: 30.1 kΩ
+- Calculated voltage gain: 4.01×
+- Overall adjustable gain range: approximately 0…4×
+- Target ADC level: approximately 3.6 Vpp maximum
 
 ## Design Rationale
 
-A non-inverting topology offers high input impedance, predictable gain and excellent compatibility with audio applications.
+A fixed gain of approximately four allows a −10 dBV consumer
+line-level source to approach the full-scale input range of the ADC.
+
+Placing the level control before the gain stage also allows stronger
+professional line-level signals to be attenuated before amplification.
 
 ## Future Validation
 
-The final gain will be verified using laboratory measurements, oscilloscope testing and ADC full-scale measurements.
+The design will be verified using:
 
-# Project SP Design Decision
+- Measured Daisy audio-input clipping level
+- Oscilloscope measurements
+- Maximum supported input-level testing
+- Noise-floor measurements
+- THD+N measurements
+- Potentiometer range and usability testing
