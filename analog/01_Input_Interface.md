@@ -1,5 +1,43 @@
 # Input Interface
 
+---
+
+## Signal Path
+
+**▶ Input Interface ◀**
+
+↓
+
+Input Protection
+
+↓
+
+Gain Stage 
+
+↓
+
+Anti-Alias Filter 
+
+↓
+
+Sample and Hold
+
+↓
+
+ADC
+
+↓
+
+Digital Processing
+
+↓
+
+DAC
+
+↓
+
+Output Stage
+
 ## Purpose
 
 The input interface is the first stage of the Project SP signal path.

@@ -1,5 +1,43 @@
 # Input Protection
 
+---
+
+## Signal Path
+
+Input Interface
+
+↓
+
+**▶ Input Protection ◀**
+
+↓
+
+Gain Stage 
+
+↓
+
+Anti-Alias Filter 
+
+↓
+
+Sample and Hold
+
+↓
+
+ADC
+
+↓
+
+Digital Processing
+
+↓
+
+DAC
+
+↓
+
+Output Stage
+
 ## Purpose
 
 The input protection stage is the first electrical interface between the outside world and Project SP.

@@ -4,6 +4,44 @@
 
 ---
 
+## Signal Path
+
+Input Interface
+
+↓
+
+Input Protection
+
+↓
+
+Gain Stage
+
+↓
+
+**▶ Anti-Alias Filter ◀**
+
+↓
+
+Sample and Hold
+
+↓
+
+ADC
+
+↓
+
+Digital Processing
+
+↓
+
+DAC
+
+↓
+
+Output Stage
+
+---
+
 ## Purpose
 
 The anti-alias filter is an analog low-pass filter placed before the

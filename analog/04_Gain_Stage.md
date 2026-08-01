@@ -1,3 +1,43 @@
+# Gain Stage
+
+---
+
+## Signal Path
+
+Input Interface
+
+↓
+
+Input Protection
+
+↓
+
+**▶ Gain Stage ◀**
+
+↓
+
+Anti-Alias Filter 
+
+↓
+
+Sample and Hold
+
+↓
+
+ADC
+
+↓
+
+Digital Processing
+
+↓
+
+DAC
+
+↓
+
+Output Stage
+
 # Initial Gain Calculation
 
 The Daisy Seed audio input accepts approximately 3.6 Vpp at full
