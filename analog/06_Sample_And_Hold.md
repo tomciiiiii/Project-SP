@@ -45,28 +45,15 @@ Output Stage
 # Purpose
 
 The Sample and Hold (S/H) stage forms the bridge between the continuous analog world and the discrete digital domain.
-
 Its purpose is simple but essential:
-
-Capture the instantaneous voltage of the analog signal and keep it constant while the Analog-to-Digital Converter (ADC) performs its conversion.
-
-Without this stage, the input voltage would continue changing during the conversion process, producing inaccurate digital samples.
-
+Capture the instantaneous voltage of the analog signal and keep it constant while the Analog-to-Digital Converter (ADC) performs its conversion. Without this stage, the input voltage would continue changing during the conversion process, producing inaccurate digital samples.
 The Sample and Hold circuit ensures that every conversion represents a single, well-defined moment in time.
 
 ---
 
 # Why Sample and Hold Exists
 
-Unlike digital signals, analog signals never stop changing.
-
-Even a simple sine wave continuously varies in voltage.
-
-An ADC, however, cannot convert an analog voltage instantaneously.
-
-Every conversion requires a finite amount of time.
-
-If the input voltage changes during this interval, the ADC no longer measures a single voltage level.
+Unlike digital signals, analog signals never stop changing. Even a simple sine wave continuously varies in voltage. An ADC, however, cannot convert an analog voltage instantaneously. Every conversion requires a finite amount of time. If the input voltage changes during this interval, the ADC no longer measures a single voltage level.
 
 Instead, it measures a moving target.
 
@@ -76,9 +63,7 @@ The Sample and Hold circuit solves this problem by temporarily freezing the anal
 
 # Continuous-Time vs Sampled Signals
 
-An analog signal exists continuously in time.
-
-The ADC only observes individual points.
+An analog signal exists continuously in time. The ADC only observes individual points.
 
 Without Sample and Hold:
 
@@ -128,27 +113,13 @@ The Sample and Hold circuit operates in two distinct phases.
 
 ## Sample Phase
 
-During the sample phase, the electronic switch closes.
-
-The hold capacitor is connected directly to the input signal.
-
-The capacitor charges until its voltage matches the input voltage.
-
-The capacitor continuously follows the incoming signal while the switch remains closed.
+During the sample phase, the electronic switch closes. The hold capacitor is connected directly to the input signal. The capacitor charges until its voltage matches the input voltage. The capacitor continuously follows the incoming signal while the switch remains closed.
 
 ---
 
 ## Hold Phase
 
-Once sampling is complete, the switch opens.
-
-The capacitor becomes electrically isolated.
-
-Because the capacitor stores electrical charge, its voltage remains nearly constant.
-
-During this short period the ADC performs the conversion.
-
-Once conversion has finished, the process repeats.
+Once sampling is complete, the switch opens. The capacitor becomes electrically isolated. Because the capacitor stores electrical charge, its voltage remains nearly constant. During this short period the ADC performs the conversion. Once conversion has finished, the process repeats.
 
 ---
 
@@ -180,9 +151,7 @@ Each block contributes to overall conversion accuracy.
 
 ## Sampling Switch
 
-Usually implemented using a MOSFET or dedicated analog switch.
-
-Its job is to connect and disconnect the capacitor from the input signal with precise timing.
+Usually implemented using a MOSFET or dedicated analog switch. Its job is to connect and disconnect the capacitor from the input signal with precise timing.
 
 Important parameters include:
 
@@ -233,20 +202,13 @@ It depends primarily on:
 - Switch resistance
 - Hold capacitor value
 
-If acquisition time is too short, the capacitor never fully reaches the input voltage.
-
-This introduces conversion error before the ADC even begins.
+If acquisition time is too short, the capacitor never fully reaches the input voltage. This introduces conversion error before the ADC even begins.
 
 ---
 
 # Hold Time
 
-During Hold mode, the capacitor slowly loses charge.
-
-The stored voltage gradually decreases.
-
-This effect is known as droop.
-
+During Hold mode, the capacitor slowly loses charge. The stored voltage gradually decreases. This effect is known as droop.
 For accurate conversion:
 
 Hold Time << Time required for significant droop
