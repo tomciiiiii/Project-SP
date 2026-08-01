@@ -82,6 +82,35 @@ Whenever possible, decisions will be supported by:
 ## Repository Structure
 
 ```
+analog/00_input/
+    01_Input_Interface.md
+    02_Operational_Amplifier.md
+    03_Input_Protection.md
+    04_Gain_Stage.md
+    05_Anti_Alias_Filter.md
+
+analog/01_conversion/
+    06_Sample_And_Hold.md
+    07_ADC_Introduction.md
+    08_SAR_ADC.md
+    09_Quantization.md
+    10_Dither.md
+    11_Sampling_Rate.md
+    12_Clock.md
+    13_Jitter.md
+
+digital/
+    14_Digital_Audio_Memory.md
+    15_Sample_Playback.md
+    16_Pitch_Shifting.md
+    17_Interpolation.md
+
+output/
+    18_DAC.md
+    19_Reconstruction_Filter.md
+    20_Output_Stage.md
+
+
 docs/
     Theory
     Service Manual Notes
