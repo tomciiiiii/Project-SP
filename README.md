@@ -9,6 +9,38 @@ Every design choice will be explained, calculated, measured and documented.
 
 ---
 
+## Reading Order
+
+### Part I – Analog Input
+1. Input Interface
+2. Operational Amplifier
+3. Input Protection
+4. Gain Stage
+5. Anti-Alias Filter
+
+### Part II – Analog to Digital Conversion
+6. Sample and Hold
+7. ADC Introduction
+8. SAR ADC
+9. Quantization
+10. Dither
+11. Sampling Rate
+12. Clock
+13. Jitter
+
+### Part III – Digital Domain
+14. Digital Audio Memory
+15. Sample Playback
+16. Pitch Shifting
+17. Interpolation
+
+### Part IV – Back to Analog
+18. DAC
+19. Reconstruction Filter
+20. Output Stage
+
+---
+
 ## Mission
 
 Build knowledge before building hardware.
