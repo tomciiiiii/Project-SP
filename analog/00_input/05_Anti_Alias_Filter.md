@@ -126,17 +126,17 @@ f_N = \frac{f_s}{2}
 For the Project SP reference sampling rate:
 
 \[
-f_s = 26.04\text{ kHz}
+f_s = 26.04\,\mathrm{kHz}
 \]
 
 therefore:
 
 \[
-f_N = \frac{26.04\text{ kHz}}{2}
+f_N = \frac{26.04\,\mathrm{kHz}}{2}
 \]
 
 \[
-\boxed{f_N = 13.02\text{ kHz}}
+\boxed{f_N = 13.02\,\mathrm{kHz}}
 \]
 
 This does not mean that an ideal 13.02 kHz audio bandwidth is automatically
@@ -160,7 +160,7 @@ the input frequency around integer multiples of the sampling frequency.
 A useful practical form is:
 
 \[
-f_{alias} = |f_{in} - kf_s|
+f_{\mathrm{alias}} = \left|f_{\mathrm{in}} - kf_s\right|
 \]
 
 where \(k\) is selected so that the result falls between 0 Hz and the Nyquist
@@ -173,23 +173,25 @@ frequency.
 For:
 
 \[
-f_s = 26.04\text{ kHz}
+f_s = 26.04\,\mathrm{kHz}
 \]
 
 and:
 
 \[
-f_{in} = 15\text{ kHz}
+f_{\mathrm{in}} = 15\,\mathrm{kHz}
 \]
 
 the aliased component becomes:
 
 \[
-f_{alias} = |15 - 26.04|
+f_{\mathrm{alias}}
+=
+\left|15\,\mathrm{kHz} - 26.04\,\mathrm{kHz}\right|
 \]
 
 \[
-\boxed{f_{alias} = 11.04\text{ kHz}}
+\boxed{f_{\mathrm{alias}} = 11.04\,\mathrm{kHz}}
 \]
 
 A 15 kHz analog component therefore appears as an 11.04 kHz digital
@@ -200,11 +202,13 @@ component.
 ## Example 2 — 18 kHz Input
 
 \[
-f_{alias} = |18 - 26.04|
+f_{\mathrm{alias}}
+=
+\left|18\,\mathrm{kHz} - 26.04\,\mathrm{kHz}\right|
 \]
 
 \[
-\boxed{f_{alias} = 8.04\text{ kHz}}
+\boxed{f_{\mathrm{alias}} = 8.04\,\mathrm{kHz}}
 \]
 
 The original 18 kHz component is transformed into an audible 8.04 kHz
@@ -215,11 +219,13 @@ component.
 ## Example 3 — 20 kHz Input
 
 \[
-f_{alias} = |20 - 26.04|
+f_{\mathrm{alias}}
+=
+\left|20\,\mathrm{kHz} - 26.04\,\mathrm{kHz}\right|
 \]
 
 \[
-\boxed{f_{alias} = 6.04\text{ kHz}}
+\boxed{f_{\mathrm{alias}} = 6.04\,\mathrm{kHz}}
 \]
 
 A high-frequency component near the upper limit of human hearing can
@@ -331,13 +337,13 @@ The filter order describes the number of poles in the transfer function.
 Each pole contributes approximately:
 
 \[
--20\text{ dB/decade}
+-20\,\mathrm{dB/decade}
 \]
 
 or:
 
 \[
--6\text{ dB/octave}
+-6\,\mathrm{dB/octave}
 \]
 
 of asymptotic roll-off.
@@ -388,26 +394,29 @@ f_c = \frac{1}{2\pi RC}
 At the cutoff frequency:
 
 \[
-|H(f_c)| = \frac{1}{\sqrt{2}}
+\left|H(f_c)\right| = \frac{1}{\sqrt{2}}
 \]
 
 which corresponds to approximately:
 
 \[
--3.01\text{ dB}
+-3.01\,\mathrm{dB}
 \]
 
 The magnitude response is:
 
 \[
-|H(j\omega)| =
-\frac{1}{\sqrt{1+\left(\frac{f}{f_c}\right)^2}}
+\left|H(f)\right|
+=
+\frac{1}
+{\sqrt{1+\left(\frac{f}{f_c}\right)^2}}
 \]
 
 The phase response is:
 
 \[
-\phi(f) =
+\phi(f)
+=
 -\tan^{-1}\left(\frac{f}{f_c}\right)
 \]
 
@@ -422,47 +431,53 @@ system.
 Assume:
 
 \[
-R = 10\text{ k}\Omega
+R = 10\,\mathrm{k}\Omega
 \]
 
 and:
 
 \[
-C = 1.5\text{ nF}
+C = 1.5\,\mathrm{nF}
 \]
 
 Then:
 
 \[
-f_c =
+f_c
+=
 \frac{1}
-{2\pi \cdot 10\,000 \cdot 1.5 \cdot 10^{-9}}
+{2\pi
+\left(10\times10^3\,\Omega\right)
+\left(1.5\times10^{-9}\,\mathrm{F}\right)}
 \]
 
 \[
-\boxed{f_c \approx 10.61\text{ kHz}}
+\boxed{f_c \approx 10.61\,\mathrm{kHz}}
 \]
 
 At the Nyquist frequency:
 
 \[
-f_N = 13.02\text{ kHz}
+f_N = 13.02\,\mathrm{kHz}
 \]
 
 the attenuation would be:
 
 \[
-|H| =
+\left|H(f_N)\right|
+=
 \frac{1}
 {\sqrt{1+\left(\frac{13.02}{10.61}\right)^2}}
 \]
 
 \[
-|H| \approx 0.632
+\left|H(f_N)\right| \approx 0.632
 \]
 
 \[
-20\log_{10}(0.632) \approx -3.98\text{ dB}
+20\log_{10}(0.632)
+\approx
+-3.98\,\mathrm{dB}
 \]
 
 Only approximately 4 dB of attenuation at Nyquist is clearly insufficient
@@ -498,7 +513,9 @@ The complete transfer function is the product of the individual section
 transfer functions:
 
 \[
-H_{total}(s) = H_1(s)H_2(s)
+H_{\mathrm{total}}(s)
+=
+H_1(s)\,H_2(s)
 \]
 
 This modular approach is useful because each section can be:
@@ -719,7 +736,8 @@ phase.
 A first-order low-pass filter produces:
 
 \[
-\phi(f) =
+\phi(f)
+=
 -\tan^{-1}\left(\frac{f}{f_c}\right)
 \]
 
@@ -744,8 +762,10 @@ delayed differently enough to change the waveform or transient structure.
 Group delay is defined as:
 
 \[
-\tau_g(\omega) =
--\frac{d\phi(\omega)}{d\omega}
+\tau_g(\omega)
+=
+-\frac{\mathrm{d}\phi(\omega)}
+{\mathrm{d}\omega}
 \]
 
 It represents how the envelope of a narrowband signal is delayed through the
@@ -797,8 +817,11 @@ alias level.
 A useful engineering relationship is:
 
 \[
-A_{required} =
-L_{out-of-band} - L_{acceptable-alias}
+A_{\mathrm{req}}
+=
+L_{\mathrm{OOB}}
+-
+L_{\mathrm{alias,max}}
 \]
 
 For example, if an out-of-band component may reach 0 dBFS-equivalent at the
@@ -806,7 +829,7 @@ analog input, and aliases should remain below −60 dBFS, the anti-alias system
 must provide approximately:
 
 \[
-\boxed{60\text{ dB}}
+\boxed{A_{\mathrm{req}} = 60\,\mathrm{dB}}
 \]
 
 of attenuation at the relevant out-of-band frequency.
@@ -830,17 +853,23 @@ An ideal \(N\)-bit converter has an approximate quantization signal-to-noise
 ratio of:
 
 \[
-SNR \approx 6.02N + 1.76\text{ dB}
+\mathrm{SNR}_{\mathrm{ideal}}
+\approx
+6.02N + 1.76\,\mathrm{dB}
 \]
 
 For 12 bits:
 
 \[
-SNR \approx 6.02 \cdot 12 + 1.76
+\mathrm{SNR}_{\mathrm{ideal}}
+\approx
+6.02\cdot12 + 1.76\,\mathrm{dB}
 \]
 
 \[
-\boxed{SNR \approx 74\text{ dB}}
+\boxed{\mathrm{SNR}_{\mathrm{ideal}}
+\approx
+74\,\mathrm{dB}}
 \]
 
 This does not automatically mean that the anti-alias filter must provide
@@ -878,29 +907,40 @@ f_c = \frac{1}{2\pi RC}
 the approximate worst-case fractional cutoff error is:
 
 \[
+\left|
 \frac{\Delta f_c}{f_c}
+\right|
 \approx
+\left|
 \frac{\Delta R}{R}
+\right|
 +
+\left|
 \frac{\Delta C}{C}
+\right|
 \]
 
 If:
 
 \[
-R = \pm1\%
+\frac{\Delta R}{R} = \pm1\%
 \]
 
 and:
 
 \[
-C = \pm5\%
+\frac{\Delta C}{C} = \pm5\%
 \]
 
 then the cutoff frequency may shift by approximately:
 
 \[
-\boxed{\pm6\%}
+\boxed{
+\left|
+\frac{\Delta f_c}{f_c}
+\right|
+\approx 6\%
+}
 \]
 
 in the simple worst-case estimate.
@@ -1130,7 +1170,15 @@ Each resistor and op-amp contributes noise.
 The thermal-noise voltage density of a resistor is:
 
 \[
-e_n = \sqrt{4kTR}
+e_n = \sqrt{4k_{\mathrm{B}}TR}
+\]
+
+
+\[
+k_{\mathrm{B}}
+=
+1.380649\times10^{-23}\,
+\mathrm{J/K}
 \]
 
 where:
